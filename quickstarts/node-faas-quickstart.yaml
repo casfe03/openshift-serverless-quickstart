@@ -4,8 +4,8 @@ metadata:
   name: node-serverless-function-quickstart
 spec:
   conclusion: |-
-    You just learned how to create a Quarkus serverless function using Quarkus Funqy extension with OpenShift Serverless! To
-    learn more about developing Kubernetes Native Java applications, take a look at our [Quarkus Guides](https://quarkus.io/guides/).
+    You just learned how to create a NodeJS serverless function using KNative CLI (kn) with OpenShift Serverless! To
+    learn more about developing Kubernetes Serverless applications, take a look at our [Serverless Guide](https://docs.openshift.com/container-platform/4.11/serverless/serverless-release-notes.html).
   description: Learn how to develop and deploy NodeJS serverless functions to Red
     Hat OpenShift using the command line (CLI).
   displayName: Get started with Node serverless functions using CLI
@@ -17,30 +17,26 @@ spec:
   nextQuickStart:
   - ""
   prerequisites:
-  - ""
+  - "Install OpenShift Serverless Operator"
+  - "Install OpenShift Pipeline Operators"
   tasks:
   
   - title: Launch Web Terminal and setup the environment
     description: "First we need to launch the Web Terminal.\n1. Click the [Web Terminal Launcher]{{highlight
-      qs-masthead-cloudshell}} in the top banner of the OpenShift Console. You'll see at the bottom of the page a message `Connecting to your OpenShift command line terminal ...`\n2.
-      Wait for the Web terminal to load. You'll see the following message `Welcome to the OpenShift Web Terminal. Type \"help\" for a list of installed CLI tools.` when it's ready\n3. Make sure the `kn func` command line is working. For that, run in the web terminal: \n```\nkn func -h\n```\n and you should see the help for knative functions CLI.\n4. Now let's define some important environment variables. Run in the terminal: \n```\nexport MY_NAMESPACE=my-namespace\nexport MY_PROJECT=demo\n```\n> Remember to replace `my-namespace` with the desired kubernetes namespace or OpenShift project and `demo` with the desired name of your functions project\n"
+      qs-masthead-cloudshell}} in the top banner of the OpenShift Console to open it. You'll see at the bottom of the page a message `Connecting to your OpenShift command line terminal ...`\n2.
+      Wait for the Web terminal to load. You'll see the following message: `Welcome to the OpenShift Web Terminal. Type \"help\" for a list of installed CLI tools.` when it's ready\n3. Make sure the `kn func` command line is working. For that, run in the web terminal: \n```\nkn func -h\n```\n and you should see the help for knative functions CLI.\n4. Now let's define some important environment variables. Run in the terminal: \n```\nexport MY_NAMESPACE=my-namespace\nexport MY_PROJECT=demo\n```\n5. Make sure you are in the right OpenShift project/namespace:\n```\noc project $MY_NAMESPACE\n```\n> Remember to replace `my-namespace` with the desired kubernetes namespace or OpenShift project and `demo` with the desired name of your functions project\n"
     review:
       failedTaskHelp: This task isn’t verified yet. Try the task again.
       instructions: |-
         #### To verify the environment variables, run:
-        ```echo $MY_NAMESPACE && echo $MY_PROJECT```
+        ```echo MY_NAMESPACE=$MY_NAMESPACE && echo MY_PROJECT=$MY_PROJECT```
         ##### You should see the values you defined before.
     summary:
       failed: Try the steps again.
       success: Congrats! Your environment is working as expected.
 
   - title: Create your first OpenShift Serverless Function project
-    description: "1. Let's create a new function project for this demontration. Run: \n```\nkn func create -l node -t http /tmp/$MY_PROJECT\n```\n This will create a folder in the tmp directory with the name of the $MY_PROJECT variable.\n2. Now let's see the files that were created. Run: \n```\ncd /tmp/$MY_PROJECT && ls\n```\n3. As you can see `index.js` has the code we need when getting a GET request: \n```\n...\n} else if (context.method === 'GET') {\nreturn {\n      query: context.query,\n    }\n...\n```\n
-      
-      
-      
-      
-      5. Create the funtions project by running: \n```\nkn func create -l node -t http -n YOUR_NAMESPACE\n```\n 6. Answer the questions as below:\n\n```\nDestination namespace: YOUR_NAMESPACE\n```\n```\nFunction source path: /tmp/demo\n```\n```\nRegistry for function images: image-registry.openshift-image-registry.svc:5000\n```\n```\nFull image name: image-registry.openshift-image-registry.svc:5000/YOUR_NAMESPACE/demo:latest\n```\n```\nNamespace into which the function is (re)deployed: YOUR_NAMESPACE\n```\n\n> Remember to replace `YOUR_NAMESPACE` with the desired kubernetes namespace or OpenShift project on all commands above\n"
+    description: "1. Let's create a new function project for this demontration. Run: \n```\nkn func create -l node -t http /tmp/$MY_PROJECT\n```\n This will create a folder in the tmp directory with the name of the $MY_PROJECT variable.\n2. Now let's see the files that were created. Run: \n```\ncd /tmp/$MY_PROJECT && ls\n```\n3. As you can see, `index.js` has the necessary code to handle a GET request (more on that later): \n```\n...\n} else if (context.method === 'GET') {\nreturn {\n      query: context.query,\n    }\n...\n```\n> You can see the `index.js` using the command: `cat index.js`"
     review:
       failedTaskHelp: This task isn’t verified yet. Try the task again.
       instructions: |-
@@ -50,118 +46,35 @@ spec:
       failed: Try the steps again.
       success: You just created a new functions project using knative CLI!
     
-  - title: Deploy function to OpenShift cluster
-    description: "Let's deploy our function on OpenShift.\n1. In the web terminal, run: \n```\nkn func deploy --registry image-registry.openshift-image-registry.svc:5000 --image image-registry.openshift-image-registry.svc:5000/$MY_NAMESPACE/$MY_PROJECT:latest -n $MY_NAMESPACE\n```\n2. Now wait for the build complete on OpenShift. While it's building, you should see the following message in the terminal:\n```\nBUILDING...\n```\n"
+  - title: Add your project to git
+    description: "In this lab, we'll push your code to a github repository. You can skip this lab if you want and use this repository for the next exercises: [https://github.com/luszczynski/openshift-serverless-quickstart](https://github.com/luszczynski/openshift-serverless-quickstart)\n\n1. Let's initialize git in our repository. Run: \n```\ncd /tmp/$MY_PROJECT && git init\n```\n2. Configure your git username and email:\n```\ngit config --global user.email \"you@example.com\"\n```\n```\ngit config --global user.name \"Your Name\"\n```\n 3. Now commit all files by running: \n```\ngit add . && git commit -m \"first commit\"\n```\n4. Create a [new github repository](https://github.com/new)  named `openshift-serverless-quickstart` \n5. Set the remote repo: \n```\ngit remote add origin git@github.com:<your-github-username>/openshift-serverless-quickstart.git\n```\n6. Push your code: \n```\ngit push -u origin main\n```\n"
     review:
       failedTaskHelp: This task isn’t verified yet. Try the task again.
-      instructions: "#### To verify the Quarkus development mode is running properly:\nDo
-        you see the logs (_Profile dev activated. Live Coding activated._) in the
-        terminal? "
+      instructions: |-
+        #### To verify your git repository was created:
+        You should see your files in the github repository.
+    summary:
+      failed: Try the steps again.
+      success: Now your code is in a github repository! Congrats!
+
+  - title: Deploy function to OpenShift cluster
+    description: "Let's deploy our function on OpenShift. If you have not created your github repository in the previous lab, use this one [https://github.com/luszczynski/openshift-serverless-quickstart](https://github.com/luszczynski/openshift-serverless-quickstart) for the next steps.  \n0. Make sure you are in the right directory and in the right namespace:\n```\ncd /tmp/$MY_PROJECT && oc project $MY_NAMESPACE\n```\n1. We need to create the s2i Tekton task to be able to use Source-to-Image in our function project:\n```\noc apply -f https://raw.githubusercontent.com/openshift-knative/kn-plugin-func/serverless-1.25.0/pipelines/resources/tekton/task/func-s2i/0.1/func-s2i.yaml -n $MY_NAMESPACE\n```\n2. We also need to create the kn func deploy Tekton task to be able to deploy the function in the pipeline:\n```\noc apply -f https://raw.githubusercontent.com/openshift-knative/kn-plugin-func/serverless-1.25.0/pipelines/resources/tekton/task/func-deploy/0.1/func-deploy.yaml -n $MY_NAMESPACE\n```\n3. Now, in the web terminal, run: \n```\nkn func deploy --remote  --git-url=https://github.com/luszczynski/openshift-serverless-quickstart.git --git-dir=node -n $MY_NAMESPACE\n```\n4. This will start a pipeline using Tekton as the engine. Let's wait for the tekton build to complete on OpenShift.\n5. While it's building, you can check the status by clicking on [Pipeline menu]{{highlight qs-nav-pipelines}}.\n6. We can algo use the OpenShift CLI to check the pipeline status:\n```\noc get pipeline -n $MY_NAMESPACE\n```\n```\noc get pipelinerun -n $MY_NAMESPACE\n```\n7. When it's done, you can see the `Task status` column as green on the pipeline menu. If using the CLI, you'll see something like this when running `oc get pipelinerun -n $MY_NAMESPACE`\n```\ndemo-s2i-pipeline-run-rdkjb   True        Succeeded        7h40m       7h37m\n```\n8. Now click on the [Topology perspective]{{highlight qs-nav-topology}} to see your first functions running."
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: "#### To verify the function was properly deployed:\nDo
+        you see your function app in the topology view?"
     summary:
       failed: Try the steps again.
       success: You're now running your Node.js function on OpenShift!
-    
-  - title: Test your first serverless function
-    description: "To test your first serverless function:\n1. In the project explorer,
-      go to the _src/main/java/org/acme_ directory and open the **MyFunctions.java**
-      file.\n2. The **@Funq** annotation exposes the _hello_ method as a serverless
-      function based on the **Funqy API**. The function name is equivalent to the
-      method name (_hello_) by default:\n```\n@Funq\npublic String hello() {\n    return
-      \"Welcome, Quarkus Serverless Functions on the Developer Sandbox!\";\n}\n```\n3.
-      Open another terminal. Click **Terminal** in the top menu bar and click the
-      **Open Terminal in specific container** item.  Click on the **vscode-javaxxx**
-      item to open another terminal.\n4. Enter the following curl command in the terminal
-      to access the function:\n```\ncurl localhost:8080/hello ; echo\n``` "
-    review:
-      failedTaskHelp: This task isn’t verified yet. Try the task again.
-      instructions: |-
-        #### To verify that the function is accessible by the RESTful API:
-        Do you see the output, **"Welcome, Quarkus Serverless Functions on the Developer Sandbox!"** in the terminal?
-    summary:
-      failed: Try the steps again.
-      success: You just accessed your first serverless function locally!
-    
 
-  - description: "Add a new function using Quarkus Contexts and Dependency Injection
-      (CDI):\n1. Go to the _src/main/java/org/acme_ directory and open the **MyFunctionsService.java**
-      file.\n2. Add the following code after **// Add a greeting service** line:\n```\npublic
-      String greeting(String name) {\n  return \"Hello \" + name;\n}\n```\nNote that
-      you don't need to save the file because CodeReady Workspaces will save the changes
-      automatically.\n3. Open the existing **MyFunctions.java** file.\n4. Add the
-      following code to inject the **MyFunctionsService**:\n```\n@Inject\nMyFunctionsService
-      myFunctionsService;\n\n@Funq\npublic String greeting(String name) {\n    return
-      myFunctionsService.greeting(name);\n}\n```\n5. Enter the following curl command
-      in the terminal to access the new function:\n```\ncurl --data '\"Quarkus Serverless
-      Function\"' localhost:8080/greeting ; echo\n``` "
-    review:
-      failedTaskHelp: This task isn’t verified yet. Try the task again.
-      instructions: |-
-        #### To verify that the new function is accessible by the RESTful API with a data:
-        Do you see the output, **"Hello Quarkus Serverless Function"** in the terminal?
-    summary:
-      failed: Try the steps again.
-      success: You just added a new serverless function to your Quarkus project!
-    title: Add a new serverless function using Quarkus CDI
-  - description: "To deploy the functions to the OpenShift cluster on the developer
-      sandbox:\n1. Go to the _src/main/resources_ directory and open the **application.properties**
-      file.\n2. Uncomment the following configuration. Then, replace **USERNAME**
-      with your username (e.g. _doh_). You can also find your username in OpenShift
-      web console:\n```\nquarkus.container-image.group=USERNAME-dev\n\n```\n3. Go
-      back to OpenShift web console. Then, click on your **username** (e.g. _doh_)
-      on the right top.\n4. Click on **Copy login command**. Note that a new web browser
-      or tab will open automatically.\n5. Log in with **DevSandbox**.\n6. Click on
-      the **Display Token** link.\n7. Copy the **oc** command with a token in **Log
-      in with this token*. For example,\n```\noc login --token=sha256~h-QJe1mT7EWfO7xhOSfg9yZBd7QhWK0Y3qZVxb95IBY
-      --server=https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443\n```\n8. Go back
-      to the terminal that Quarkus dev mode is running. Stop the dev mode by **CTRL-C**.\n9.
-      Paste the above command to the terminal in CodeReady Workspaces. The output
-      should look like:\n```\nYou have access to the following projects and can switch
-      between them with 'oc project <projectname>':\n\n* YOUR_USERNAME-dev\n  YOUR_USERNAME-stage\n\nUsing
-      project \"YOUR_USERNAME-dev\".\nWelcome! See 'oc help' to get started.\n```
-      \n10. Deploy the functions by using the following **Maven** command:\n```\nmvn
-      clean package\n```\nNote that it takes a few minutes to complete building and
-      deploying the applications to OpenShift."
-    review:
-      failedTaskHelp: This task isn’t verified yet. Try the task again.
-      instructions: |-
-        #### To verify that the Quarkus serverless functions are deployed successfully:
-        Do you see the output,  **BUILD SUCCESS** in the terminal?
-    summary:
-      failed: Try the steps again.
-      success: You just deployed your serverless functions to the OpenShift cluster
-        on the developer sandbox!
-    title: Deploy the Quarkus serverless function to OpenShift
-  - description: "To change the runtime icon to reflect Quarkus, and access the deployed
-      functions on the OpenShift cluster:\n1. Return to the OpenShift Console. In
-      the navigation menu, click [Topology]{{highlight qs-nav-topology}}.\n2. Click
-      on the **quarkus-funqy-qs-00001s** revision.\n3. In the side panel, click the
-      **Actions** dropdown menu and click **Edit labels**.\n4. Add this label to change
-      the Revision icon to **Quarkus**: \n```\napp.openshift.io/runtime=quarkus\n```\n5.
-      Click on **Save** to save the labels.\n6. Click on the **quarkus-funqy-qs**
-      KSVC.\n7. In the side panel, click the **Actions** dropdown menu and click **Edit
-      labels**.\n8. Add this label to indicate that this is a serverless function:
-      \n```\nboson.dev/function=true\n``` 9. Click on **Save** to save the labels.\n10.
-      By now, the pod should have autoscaled to `0`. Hover over the pod ring with
-      the Quarkus logo.  A blue ring indicates the pod is running.  A white ring indicates
-      that the pod is autoscaled to 0.  The pod should autoscale to `0` after `30`
-      seconds of no activity.\n11. Click on the Resources tab of the side panel and
-      copy the Route URL. For example, it should look similar to:\n```\nhttps://quarkus-funqy-qs-doh-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com\n```\n12.
-      Return to the Terminal in CodeReady Workspaces, and enter the following **curl**
-      command to access the **greeting** function. Be sure to replace **YOUR-ROUTE-URL**
-      with the Route URL you just copied.\n```\ncurl --data '\"Quarkus Serverless
-      Functions\"' https://YOUR-ROUTE-URL/greeting ; echo\n```\n13. Return to the
-      OpenShift Console. You should see the pod autoscales to `1`. Note that it might
-      take a few seconds to scale out.\n14. Return to the Terminal in CodeReady Worksapces,
-      to access the other function (**hello**) using the following curl command.  Be
-      sure to replace **YOUR-ROUTE-URL** with the Route URL you previously copied:\n```\ncurl
-      https://YOUR-ROUTE-URL/hello ; echo\n``` "
+  - title: Access the functions on OpenShift
+    description: "Go back to the [Topology view]{{highlight qs-nav-topology}}\n\n1. By now, the pod should have autoscaled  to `0`. Hover over the pod ring with the NodeJS logo.  A blue ring indicates the pod is running.  A white ring indicates that the pod is autoscaled to 0.  The pod should autoscale to `0` after `60` seconds of no activity.\n2. Click on the KSVC icon and then on the `Resources`` tab of the side panel and copy the Route URL. For example, it should look similar to:\n```\nhttps://node-user8.apps.customer.sandbox1653.opentlc.com\n```\n3. Return to the web terminal, and enter the following **curl** command to access our function. Be sure to replace **YOUR-ROUTE-URL** with the Route URL you just copied.\n```\ncurl --data 'NodeJS Serverless Functions' https://YOUR-ROUTE-URL ; echo\n```\n4. Return to the OpenShift Console. You should see the pod autoscales to `1`. Note that it might take a few seconds to scale out.\n"
     review:
       failedTaskHelp: This task isn’t verified yet. Try the task again.
       instructions: |-
         #### To verify that the deployed functions on OpenShift are accessible by the RESTful APIs:
-        1. Do you see the output, **"Hello Quarkus Serverless Function"** when you access the **greeting** function in the terminal?
-        2. Do you see the output, **"Welcome, Quarkus Serverless Functions on the Developer Sandbox!"** when you access the **hello** function in the terminal?
+        Do you see your application scaling up when you reach its URL?
     summary:
       failed: Try the steps again.
       success: You just accessed the deployed serverless functions on OpenShift!
-    title: Access the functions on OpenShift
+    
