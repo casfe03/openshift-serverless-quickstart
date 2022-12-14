@@ -1,0 +1,32 @@
+specVersion: 0.25.0
+name: quarkus
+namespace: ""
+runtime: quarkus
+registry: ""
+image: ""
+imageDigest: ""
+buildpacks: []
+builder: ""
+volumes: []
+buildEnvs:
+- name: BP_NATIVE_IMAGE
+  value: "false"
+- name: BP_MAVEN_BUILT_ARTIFACT
+  value: func.yaml target/quarkus-app/lib/ target/quarkus-app/*.jar target/quarkus-app/app/
+    target/quarkus-app/quarkus/
+- name: BP_MAVEN_BUILD_ARGUMENTS
+  value: package -DskipTests=true -Dmaven.javadoc.skip=true -Dquarkus.package.type=fast-jar
+- name: MAVEN_S2I_ARTIFACT_DIRS
+  value: target/quarkus-app
+- name: S2I_SOURCE_DEPLOYMENTS_FILTER
+  value: lib quarkus-run.jar app quarkus
+envs: []
+annotations: {}
+options: {}
+labels: []
+healthEndpoints:
+  liveness: /health/liveness
+  readiness: /health/readiness
+created: 2022-12-14T10:12:01.538795-03:00
+invocation:
+  format: http

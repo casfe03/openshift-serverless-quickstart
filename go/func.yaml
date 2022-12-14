@@ -1,0 +1,23 @@
+specVersion: 0.25.0
+name: go
+namespace: ""
+runtime: go
+registry: ""
+image: ""
+imageDigest: ""
+buildpacks:
+- paketo-buildpacks/go-dist
+- ghcr.io/boson-project/go-function-buildpack:tip
+builder: ""
+volumes: []
+buildEnvs: []
+envs: []
+annotations: {}
+options: {}
+labels: []
+healthEndpoints:
+  liveness: /health/liveness
+  readiness: /health/readiness
+created: 2022-12-14T10:11:09.523903-03:00
+invocation:
+  format: http

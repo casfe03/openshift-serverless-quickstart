@@ -1,0 +1,167 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleQuickStart
+metadata:
+  name: node-serverless-function-quickstart
+spec:
+  conclusion: |-
+    You just learned how to create a Quarkus serverless function using Quarkus Funqy extension with OpenShift Serverless! To
+    learn more about developing Kubernetes Native Java applications, take a look at our [Quarkus Guides](https://quarkus.io/guides/).
+  description: Learn how to develop and deploy NodeJS serverless functions to Red
+    Hat OpenShift using the command line (CLI).
+  displayName: Get started with Node serverless functions using CLI
+  durationMinutes: 10
+  icon: data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIwLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAzMiAzMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzIgMzI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojNjk5RjYzO30KCS5zdDF7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojMzMzMzMzO30KCS5zdDJ7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojNjk5RjYzO30KCS5zdDN7Y2xpcC1wYXRoOnVybCgjWE1MSURfNV8pO30KCS5zdDR7ZmlsbDpub25lO30KCS5zdDV7ZmlsbDp1cmwoI1NWR0lEXzFfKTt9Cgkuc3Q2e2ZpbGw6dXJsKCNTVkdJRF8yXyk7fQoJLnN0N3tmaWxsOnVybCgjU1ZHSURfM18pO30KCS5zdDh7ZmlsbDp1cmwoI1NWR0lEXzRfKTt9Cgkuc3Q5e2ZpbGw6dXJsKCNTVkdJRF81Xyk7fQoJLnN0MTB7ZmlsbDp1cmwoI1NWR0lEXzZfKTt9Cjwvc3R5bGU+CjxnPgoJPGc+CgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE1LjgyLDI1LjY1Yy0wLjExLDAtMC4yMS0wLjAzLTAuMy0wLjA4TDE0LjU1LDI1Yy0wLjE0LTAuMDgtMC4wNy0wLjExLTAuMDMtMC4xMwoJCQljMC4xOS0wLjA3LDAuMjMtMC4wOCwwLjQ0LTAuMmMwLjAyLTAuMDEsMC4wNS0wLjAxLDAuMDcsMC4wMWwwLjc0LDAuNDRjMC4wMywwLjAxLDAuMDYsMC4wMSwwLjA5LDBsMi44OS0xLjY3CgkJCWMwLjAzLTAuMDIsMC4wNC0wLjA1LDAuMDQtMC4wOHYtMy4zNGMwLTAuMDMtMC4wMi0wLjA2LTAuMDQtMC4wOGwtMi44OS0xLjY3Yy0wLjAzLTAuMDItMC4wNi0wLjAyLTAuMDksMGwtMi44OSwxLjY3CgkJCWMtMC4wMywwLjAyLTAuMDUsMC4wNS0wLjA1LDAuMDh2My4zNGMwLDAuMDMsMC4wMiwwLjA2LDAuMDUsMC4wOGwwLjc5LDAuNDZjMC40MywwLjIxLDAuNjktMC4wNCwwLjY5LTAuMjl2LTMuMjkKCQkJYzAtMC4wNSwwLjA0LTAuMDgsMC4wOC0wLjA4aDAuMzdjMC4wNSwwLDAuMDgsMC4wNCwwLjA4LDAuMDh2My4yOWMwLDAuNTctMC4zMSwwLjktMC44NiwwLjljLTAuMTcsMC0wLjMsMC0wLjY3LTAuMThsLTAuNzYtMC40NAoJCQljLTAuMTktMC4xMS0wLjMtMC4zMS0wLjMtMC41M3YtMy4zNGMwLTAuMjIsMC4xMi0wLjQyLDAuMy0wLjUzbDIuODktMS42N2MwLjE4LTAuMSwwLjQzLTAuMSwwLjYxLDBsMi44OSwxLjY3CgkJCWMwLjE5LDAuMTEsMC4zLDAuMzEsMC4zLDAuNTN2My4zNGMwLDAuMjItMC4xMiwwLjQyLTAuMywwLjUzbC0yLjg5LDEuNjdDMTYuMDMsMjUuNjIsMTUuOTIsMjUuNjUsMTUuODIsMjUuNjV6Ii8+CgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTE2LjcxLDIzLjM1Yy0xLjI2LDAtMS41My0wLjU4LTEuNTMtMS4wN2MwLTAuMDUsMC4wNC0wLjA4LDAuMDgtMC4wOGgwLjM3YzAuMDQsMCwwLjA4LDAuMDMsMC4wOCwwLjA3CgkJCWMwLjA2LDAuMzgsMC4yMiwwLjU3LDAuOTksMC41N2MwLjYxLDAsMC44Ny0wLjE0LDAuODctMC40NmMwLTAuMTktMC4wNy0wLjMyLTEuMDItMC40MmMtMC43OS0wLjA4LTEuMjgtMC4yNS0xLjI4LTAuODkKCQkJYzAtMC41OCwwLjQ5LTAuOTMsMS4zMi0wLjkzYzAuOTMsMCwxLjM4LDAuMzIsMS40NCwxLjAxYzAsMC4wMi0wLjAxLDAuMDUtMC4wMiwwLjA2Yy0wLjAyLDAuMDItMC4wNCwwLjAzLTAuMDYsMC4wM2gtMC4zOAoJCQljLTAuMDQsMC0wLjA3LTAuMDMtMC4wOC0wLjA3Yy0wLjA5LTAuNC0wLjMxLTAuNTMtMC45LTAuNTNjLTAuNjYsMC0wLjc0LDAuMjMtMC43NCwwLjQxYzAsMC4yMSwwLjA5LDAuMjcsMC45OSwwLjM5CgkJCWMwLjg5LDAuMTIsMS4zMSwwLjI4LDEuMzEsMC45MUMxOC4xNSwyMi45OSwxNy42MiwyMy4zNSwxNi43MSwyMy4zNXoiLz4KCTwvZz4KCTxnPgoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMC44OCwxOS44NmMwLDAuMzEtMC4yNSwwLjU2LTAuNTYsMC41NmMtMC4zLDAtMC41Ni0wLjI1LTAuNTYtMC41NmMwLTAuMzIsMC4yNi0wLjU2LDAuNTYtMC41NgoJCQlDMjAuNjIsMTkuMywyMC44OCwxOS41NCwyMC44OCwxOS44NnogTTE5Ljg1LDE5Ljg2YzAsMC4yNiwwLjIxLDAuNDcsMC40NywwLjQ3YzAuMjYsMCwwLjQ3LTAuMjEsMC40Ny0wLjQ3CgkJCWMwLTAuMjYtMC4yMS0wLjQ3LTAuNDctMC40N0MyMC4wNiwxOS4zOSwxOS44NSwxOS41OSwxOS44NSwxOS44NnogTTIwLjExLDE5LjU0aDAuMjJjMC4wNywwLDAuMjIsMCwwLjIyLDAuMTcKCQkJYzAsMC4xMS0wLjA3LDAuMTQtMC4xMiwwLjE1YzAuMDksMC4wMSwwLjA5LDAuMDYsMC4xLDAuMTRjMC4wMSwwLjA1LDAuMDEsMC4xNCwwLjAzLDAuMTZoLTAuMTNjMC0wLjAzLTAuMDItMC4xOS0wLjAyLTAuMgoJCQljLTAuMDEtMC4wNC0wLjAyLTAuMDUtMC4wNi0wLjA1aC0wLjExdjAuMjVoLTAuMTJWMTkuNTR6IE0yMC4yMywxOS44MmgwLjFjMC4wOCwwLDAuMDktMC4wNiwwLjA5LTAuMDkKCQkJYzAtMC4wOS0wLjA2LTAuMDktMC4wOS0wLjA5aC0wLjFWMTkuODJ6Ii8+Cgk8L2c+Cgk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNi44NywxMi42YzAtMC4xMy0wLjA3LTAuMjYtMC4xOS0wLjMybC0zLjA2LTEuNzZjLTAuMDUtMC4wMy0wLjExLTAuMDUtMC4xNy0wLjA1Yy0wLjAxLDAtMC4wMywwLTAuMDMsMAoJCWMtMC4wNiwwLTAuMTIsMC4wMi0wLjE3LDAuMDVsLTMuMDYsMS43NkMwLjA3LDEyLjM1LDAsMTIuNDcsMCwxMi42bDAuMDEsNC43NWMwLDAuMDcsMC4wMywwLjEzLDAuMDksMC4xNgoJCWMwLjA2LDAuMDMsMC4xMywwLjAzLDAuMTgsMGwxLjgyLTEuMDRjMC4xMi0wLjA3LDAuMTktMC4xOSwwLjE5LTAuMzJ2LTIuMjJjMC0wLjEzLDAuMDctMC4yNSwwLjE4LTAuMzJsMC43OC0wLjQ1CgkJYzAuMDYtMC4wMywwLjEyLTAuMDUsMC4xOS0wLjA1YzAuMDYsMCwwLjEzLDAuMDIsMC4xOCwwLjA1bDAuNzgsMC40NWMwLjExLDAuMDcsMC4xOSwwLjE5LDAuMTksMC4zMnYyLjIyCgkJYzAsMC4xMywwLjA3LDAuMjUsMC4xOSwwLjMybDEuODIsMS4wNGMwLjA2LDAuMDMsMC4xMywwLjAzLDAuMTksMGMwLjA2LTAuMDMsMC4wOS0wLjA5LDAuMDktMC4xNkw2Ljg3LDEyLjZ6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjEuNjEsNi4wOGMtMC4wNi0wLjAzLTAuMTMtMC4wMy0wLjE4LDBjLTAuMDYsMC4wMy0wLjA5LDAuMDktMC4wOSwwLjE2djQuN2MwLDAuMDUtMC4wMiwwLjA5LTAuMDYsMC4xMQoJCWMtMC4wNCwwLjAyLTAuMDksMC4wMi0wLjEzLDBsLTAuNzctMC40NGMtMC4xMS0wLjA3LTAuMjYtMC4wNy0wLjM3LDBsLTMuMDcsMS43N2MtMC4xMSwwLjA3LTAuMTksMC4xOS0wLjE5LDAuMzJ2My41NAoJCWMwLDAuMTMsMC4wNywwLjI1LDAuMTksMC4zMkwyMCwxOC4zM2MwLjExLDAuMDcsMC4yNiwwLjA3LDAuMzcsMGwzLjA3LTEuNzdjMC4xMS0wLjA3LDAuMTktMC4xOSwwLjE5LTAuMzJWNy40MgoJCWMwLTAuMTMtMC4wNy0wLjI2LTAuMTktMC4zMkwyMS42MSw2LjA4eiBNMjEuMzMsMTUuMDhjMCwwLjAzLTAuMDIsMC4wNi0wLjA1LDAuMDhsLTEuMDUsMC42MWMtMC4wMywwLjAyLTAuMDYsMC4wMi0wLjA5LDAKCQlsLTEuMDUtMC42MWMtMC4wMy0wLjAyLTAuMDUtMC4wNS0wLjA1LTAuMDh2LTEuMjJjMC0wLjAzLDAuMDItMC4wNiwwLjA1LTAuMDhsMS4wNS0wLjYxYzAuMDMtMC4wMiwwLjA2LTAuMDIsMC4wOSwwbDEuMDUsMC42MQoJCWMwLjAzLDAuMDIsMC4wNSwwLjA1LDAuMDUsMC4wOFYxNS4wOHoiLz4KCTxnPgoJCTxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zMS44MiwxMy44M2MwLjExLTAuMDcsMC4xOC0wLjE5LDAuMTgtMC4zMnYtMC44NmMwLTAuMTMtMC4wNy0wLjI1LTAuMTgtMC4zMmwtMy4wNS0xLjc3CgkJCWMtMC4xMS0wLjA3LTAuMjYtMC4wNy0wLjM3LDBsLTMuMDYsMS43N2MtMC4xMSwwLjA3LTAuMTksMC4xOS0wLjE5LDAuMzJ2My41NGMwLDAuMTMsMC4wNywwLjI2LDAuMTksMC4zMmwzLjA0LDEuNzQKCQkJYzAuMTEsMC4wNiwwLjI1LDAuMDYsMC4zNiwwbDEuODQtMS4wMmMwLjA2LTAuMDMsMC4wOS0wLjA5LDAuMS0wLjE2YzAtMC4wNy0wLjA0LTAuMTMtMC4wOS0wLjE2bC0zLjA4LTEuNzcKCQkJYy0wLjA2LTAuMDMtMC4wOS0wLjA5LTAuMDktMC4xNnYtMS4xMWMwLTAuMDcsMC4wNC0wLjEzLDAuMDktMC4xNmwwLjk2LTAuNTVjMC4wNi0wLjAzLDAuMTMtMC4wMywwLjE4LDBsMC45NiwwLjU1CgkJCWMwLjA2LDAuMDMsMC4wOSwwLjA5LDAuMDksMC4xNnYwLjg3YzAsMC4wNywwLjA0LDAuMTMsMC4wOSwwLjE2YzAuMDYsMC4wMywwLjEzLDAuMDMsMC4xOSwwTDMxLjgyLDEzLjgzeiIvPgoJCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0yOC41NCwxMy42NmMwLjAyLTAuMDEsMC4wNS0wLjAxLDAuMDcsMEwyOS4yLDE0YzAuMDIsMC4wMSwwLjA0LDAuMDQsMC4wNCwwLjA2djAuNjgKCQkJYzAsMC4wMy0wLjAxLDAuMDUtMC4wNCwwLjA2bC0wLjU5LDAuMzRjLTAuMDIsMC4wMS0wLjA1LDAuMDEtMC4wNywwbC0wLjU5LTAuMzRjLTAuMDItMC4wMS0wLjA0LTAuMDQtMC4wNC0wLjA2di0wLjY4CgkJCWMwLTAuMDMsMC4wMS0wLjA1LDAuMDQtMC4wNkwyOC41NCwxMy42NnoiLz4KCTwvZz4KCTxnPgoJCTxkZWZzPgoJCQk8cGF0aCBpZD0iWE1MSURfMTQzXyIgZD0iTTExLjk5LDEwLjU4Yy0wLjExLTAuMDctMC4yNS0wLjA3LTAuMzcsMGwtMy4wNSwxLjc2Yy0wLjExLDAuMDctMC4xOCwwLjE5LTAuMTgsMC4zMnYzLjUyCgkJCQljMCwwLjEzLDAuMDcsMC4yNSwwLjE4LDAuMzJsMy4wNSwxLjc2YzAuMTEsMC4wNywwLjI1LDAuMDcsMC4zNywwbDMuMDUtMS43NmMwLjExLTAuMDcsMC4xOC0wLjE5LDAuMTgtMC4zMnYtMy41MgoJCQkJYzAtMC4xMy0wLjA3LTAuMjUtMC4xOC0wLjMyTDExLjk5LDEwLjU4eiIvPgoJCTwvZGVmcz4KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlhNTElEXzRfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjEzLjA0OTQiIHkxPSIxMS44OTE3IiB4Mj0iMTAuMjk1OSIgeTI9IjE3LjUwODkiPgoJCQk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojNDE4NzNGIi8+CgkJCTxzdG9wICBvZmZzZXQ9IjAuMzI4OCIgc3R5bGU9InN0b3AtY29sb3I6IzQxOEIzRCIvPgoJCQk8c3RvcCAgb2Zmc2V0PSIwLjYzNTIiIHN0eWxlPSJzdG9wLWNvbG9yOiM0MTk2MzciLz4KCQkJPHN0b3AgIG9mZnNldD0iMC45MzE5IiBzdHlsZT0ic3RvcC1jb2xvcjojM0ZBOTJEIi8+CgkJCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMzRkFFMkEiLz4KCQk8L2xpbmVhckdyYWRpZW50PgoJCTx1c2UgeGxpbms6aHJlZj0iI1hNTElEXzE0M18iICBzdHlsZT0ib3ZlcmZsb3c6dmlzaWJsZTtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjWE1MSURfNF8pOyIvPgoJCTxjbGlwUGF0aCBpZD0iWE1MSURfNV8iPgoJCQk8dXNlIHhsaW5rOmhyZWY9IiNYTUxJRF8xNDNfIiAgc3R5bGU9Im92ZXJmbG93OnZpc2libGU7Ii8+CgkJPC9jbGlwUGF0aD4KCQk8ZyBjbGFzcz0ic3QzIj4KCQkJPHBhdGggY2xhc3M9InN0NCIgZD0iTTExLjYyLDEwLjU4bC0zLjI0LDEuNzZDOC4yNywxMi40MSw4LDEyLjUzLDgsMTIuNjZ2My41MmMwLDAuMDksMC4yMiwwLjE3LDAuMjgsMC4yM2wzLjUyLTUuODcKCQkJCUMxMS43MSwxMC41MiwxMS43LDEwLjUzLDExLjYyLDEwLjU4eiIvPgoJCQk8cGF0aCBjbGFzcz0ic3Q0IiBkPSJNMTEuOTEsMTguMjljMC4wMy0wLjAxLDAuMDYtMC4wMiwwLjA5LTAuMDRsMy40My0xLjc2YzAuMTEtMC4wNywwLjU3LTAuMTksMC41Ny0wLjMydi0zLjUyCgkJCQljMC0wLjEtMC40Mi0wLjE5LTAuNDktMC4yNkwxMS45MSwxOC4yOXoiLz4KCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8xXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxMS4zNDYzIiB5MT0iMTQuODMxNCIgeDI9IjE5LjA3MjQiIHkyPSI5LjEyMjkiPgoJCQkJPHN0b3AgIG9mZnNldD0iMC4xMzc2IiBzdHlsZT0ic3RvcC1jb2xvcjojNDE4NzNGIi8+CgkJCQk8c3RvcCAgb2Zmc2V0PSIwLjQwMzIiIHN0eWxlPSJzdG9wLWNvbG9yOiM1NEEwNDQiLz4KCQkJCTxzdG9wICBvZmZzZXQ9IjAuNzEzNiIgc3R5bGU9InN0b3AtY29sb3I6IzY2Qjg0OCIvPgoJCQkJPHN0b3AgIG9mZnNldD0iMC45MDgxIiBzdHlsZT0ic3RvcC1jb2xvcjojNkNDMDRBIi8+CgkJCTwvbGluZWFyR3JhZGllbnQ+CgkJCTxwYXRoIGNsYXNzPSJzdDUiIGQ9Ik0xNS4wNSwxMi4zNGwtMy4wNi0xLjc2Yy0wLjAzLTAuMDItMC4wNi0wLjAzLTAuMS0wLjA0bC0zLjQzLDUuODdjMC4wMywwLjAzLDAuMDYsMC4wNiwwLjEsMC4wOGwzLjA2LDEuNzYKCQkJCWMwLjA5LDAuMDUsMC4xOSwwLjA2LDAuMjgsMC4wNGwzLjIyLTUuODlDMTUuMTEsMTIuMzgsMTUuMDgsMTIuMzYsMTUuMDUsMTIuMzR6Ii8+CgkJPC9nPgoJCTxnIGNsYXNzPSJzdDMiPgoJCQk8cGF0aCBjbGFzcz0ic3Q0IiBkPSJNMTYsMTYuMTh2LTMuNTJjMC0wLjEzLTAuNDYtMC4yNS0wLjU3LTAuMzJsLTMuMjUtMS43NmMtMC4wNC0wLjAyLTAuMTctMC4wMy0wLjIxLTAuMDRsMy42OCw1LjcyCgkJCQlDMTUuNjYsMTYuMjQsMTYsMTYuMjEsMTYsMTYuMTh6Ii8+CgkJCTxwYXRoIGNsYXNzPSJzdDQiIGQ9Ik04LjM4LDEyLjM0QzguMjcsMTIuNDEsOCwxMi41Myw4LDEyLjY2djMuNTJjMCwwLjEzLDAuMjcsMC4yNSwwLjM4LDAuMzJsMy4xNSwxLjc2CgkJCQljMC4wNywwLjA0LDAuMiwwLjA2LDAuMjgsMC4wNWwtMy4zNS01Ljk3TDguMzgsMTIuMzR6Ii8+CgkJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMl8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iOC4yODY3IiB5MT0iOS45NDczIiB4Mj0iMTUuMzMzNiIgeTI9IjkuOTQ3MyI+CgkJCQk8c3RvcCAgb2Zmc2V0PSIwLjA5MTkiIHN0eWxlPSJzdG9wLWNvbG9yOiM2Q0MwNEEiLz4KCQkJCTxzdG9wICBvZmZzZXQ9IjAuMjg2NCIgc3R5bGU9InN0b3AtY29sb3I6IzY2Qjg0OCIvPgoJCQkJPHN0b3AgIG9mZnNldD0iMC41OTY4IiBzdHlsZT0ic3RvcC1jb2xvcjojNTRBMDQ0Ii8+CgkJCQk8c3RvcCAgb2Zmc2V0PSIwLjg2MjQiIHN0eWxlPSJzdG9wLWNvbG9yOiM0MTg3M0YiLz4KCQkJPC9saW5lYXJHcmFkaWVudD4KCQkJPHBvbHlnb24gY2xhc3M9InN0NiIgcG9pbnRzPSIxMS41Miw5Ljk0IDExLjQ4LDkuOTYgMTEuNTQsOS45NiAJCQkiLz4KCQkJPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8zXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI4LjI4NjciIHkxPSIxNC40MTkiIHgyPSIxNS4zMzM2IiB5Mj0iMTQuNDE5Ij4KCQkJCTxzdG9wICBvZmZzZXQ9IjAuMDkxOSIgc3R5bGU9InN0b3AtY29sb3I6IzZDQzA0QSIvPgoJCQkJPHN0b3AgIG9mZnNldD0iMC4yODY0IiBzdHlsZT0ic3RvcC1jb2xvcjojNjZCODQ4Ii8+CgkJCQk8c3RvcCAgb2Zmc2V0PSIwLjU5NjgiIHN0eWxlPSJzdG9wLWNvbG9yOiM1NEEwNDQiLz4KCQkJCTxzdG9wICBvZmZzZXQ9IjAuODYyNCIgc3R5bGU9InN0b3AtY29sb3I6IzQxODczRiIvPgoJCQk8L2xpbmVhckdyYWRpZW50PgoJCQk8cGF0aCBjbGFzcz0ic3Q3IiBkPSJNMTUuMDUsMTYuNWMwLjA5LTAuMDUsMC4xNi0wLjE0LDAuMTgtMC4yM2wtMy4zNS01LjcyYy0wLjA5LTAuMDItMC4xOCwwLTAuMjYsMC4wNGwtMy4wNCwxLjc1bDMuMjgsNS45NwoJCQkJYzAuMDUtMC4wMSwwLjA5LTAuMDIsMC4xMy0wLjA1TDE1LjA1LDE2LjV6Ii8+CgkJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfNF8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iOC4yODY3IiB5MT0iMTYuNDMwNyIgeDI9IjE1LjMzMzYiIHkyPSIxNi40MzA3Ij4KCQkJCTxzdG9wICBvZmZzZXQ9IjAuMDkxOSIgc3R5bGU9InN0b3AtY29sb3I6IzZDQzA0QSIvPgoJCQkJPHN0b3AgIG9mZnNldD0iMC4yODY0IiBzdHlsZT0ic3RvcC1jb2xvcjojNjZCODQ4Ii8+CgkJCQk8c3RvcCAgb2Zmc2V0PSIwLjU5NjgiIHN0eWxlPSJzdG9wLWNvbG9yOiM1NEEwNDQiLz4KCQkJCTxzdG9wICBvZmZzZXQ9IjAuODYyNCIgc3R5bGU9InN0b3AtY29sb3I6IzQxODczRiIvPgoJCQk8L2xpbmVhckdyYWRpZW50PgoJCQk8cG9seWdvbiBjbGFzcz0ic3Q4IiBwb2ludHM9IjE1LjMzLDE2LjQ0IDE1LjMxLDE2LjQxIDE1LjMxLDE2LjQ1IAkJCSIvPgoJCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzVfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjcuNTc0NyIgeTE9IjE3LjM0IiB4Mj0iMTYuMDI0MiIgeTI9IjE3LjM0Ij4KCQkJCTxzdG9wICBvZmZzZXQ9IjAuMDkxOSIgc3R5bGU9InN0b3AtY29sb3I6IzZDQzA0QSIvPgoJCQkJPHN0b3AgIG9mZnNldD0iMC4yODY0IiBzdHlsZT0ic3RvcC1jb2xvcjojNjZCODQ4Ii8+CgkJCQk8c3RvcCAgb2Zmc2V0PSIwLjU5NjgiIHN0eWxlPSJzdG9wLWNvbG9yOiM1NEEwNDQiLz4KCQkJCTxzdG9wICBvZmZzZXQ9IjAuODYyNCIgc3R5bGU9InN0b3AtY29sb3I6IzQxODczRiIvPgoJCQk8L2xpbmVhckdyYWRpZW50PgoJCQk8cGF0aCBjbGFzcz0ic3Q5IiBkPSJNMTUuMDUsMTYuNUwxMiwxOC4yNmMtMC4wNCwwLjAyLTAuMDksMC4wNC0wLjEzLDAuMDVsMC40LDAuMTFMMTYsMTYuNDV2LTAuMDVsLTAuNDMtMC4xNAoJCQkJQzE1LjU1LDE2LjM2LDE1LjE0LDE2LjQ1LDE1LjA1LDE2LjV6Ii8+CgkJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfNl8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTYuODExNyIgeTE9IjExLjUwNDUiIHgyPSIxMi4yODg2IiB5Mj0iMjAuNzMxNiI+CgkJCQk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojNDE4NzNGIi8+CgkJCQk8c3RvcCAgb2Zmc2V0PSIwLjMyODgiIHN0eWxlPSJzdG9wLWNvbG9yOiM0MThCM0QiLz4KCQkJCTxzdG9wICBvZmZzZXQ9IjAuNjM1MiIgc3R5bGU9InN0b3AtY29sb3I6IzQxOTYzNyIvPgoJCQkJPHN0b3AgIG9mZnNldD0iMC45MzE5IiBzdHlsZT0ic3RvcC1jb2xvcjojM0ZBOTJEIi8+CgkJCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojM0ZBRTJBIi8+CgkJCTwvbGluZWFyR3JhZGllbnQ+CgkJCTxwYXRoIGNsYXNzPSJzdDEwIiBkPSJNMTUuMDUsMTYuNUwxMiwxOC4yNmMtMC4wNCwwLjAyLTAuMDksMC4wNC0wLjEzLDAuMDVsMC40LDAuMTFMMTYsMTYuNDV2LTAuMDVsLTAuNDMtMC4xNAoJCQkJQzE1LjU1LDE2LjM2LDE1LjE0LDE2LjQ1LDE1LjA1LDE2LjV6Ii8+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPg==
+  introduction: |-
+    This quick start guides you through developing and deploying a simple NodeJs serverless
+    function using OpenShift Serverless Function.
+  nextQuickStart:
+  - ""
+  prerequisites:
+  - ""
+  tasks:
+  
+  - title: Launch Web Terminal and setup the environment
+    description: "First we need to launch the Web Terminal.\n1. Click the [Web Terminal Launcher]{{highlight
+      qs-masthead-cloudshell}} in the top banner of the OpenShift Console. You'll see at the bottom of the page a message `Connecting to your OpenShift command line terminal ...`\n2.
+      Wait for the Web terminal to load. You'll see the following message `Welcome to the OpenShift Web Terminal. Type \"help\" for a list of installed CLI tools.` when it's ready\n3. Make sure the `kn func` command line is working. For that, run in the web terminal: \n```\nkn func -h\n```\n and you should see the help for knative functions CLI.\n4. Now let's define some important environment variables. Run in the terminal: \n```\nexport MY_NAMESPACE=my-namespace\nexport MY_PROJECT=demo\n```\n> Remember to replace `my-namespace` with the desired kubernetes namespace or OpenShift project and `demo` with the desired name of your functions project\n"
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |-
+        #### To verify the environment variables, run:
+        ```echo $MY_NAMESPACE && echo $MY_PROJECT```
+        ##### You should see the values you defined before.
+    summary:
+      failed: Try the steps again.
+      success: Congrats! Your environment is working as expected.
+
+  - title: Create your first OpenShift Serverless Function project
+    description: "1. Let's create a new function project for this demontration. Run: \n```\nkn func create -l node -t http /tmp/$MY_PROJECT\n```\n This will create a folder in the tmp directory with the name of the $MY_PROJECT variable.\n2. Now let's see the files that were created. Run: \n```\ncd /tmp/$MY_PROJECT && ls\n```\n3. As you can see `index.js` has the code we need when getting a GET request: \n```\n...\n} else if (context.method === 'GET') {\nreturn {\n      query: context.query,\n    }\n...\n```\n
+      
+      
+      
+      
+      5. Create the funtions project by running: \n```\nkn func create -l node -t http -n YOUR_NAMESPACE\n```\n 6. Answer the questions as below:\n\n```\nDestination namespace: YOUR_NAMESPACE\n```\n```\nFunction source path: /tmp/demo\n```\n```\nRegistry for function images: image-registry.openshift-image-registry.svc:5000\n```\n```\nFull image name: image-registry.openshift-image-registry.svc:5000/YOUR_NAMESPACE/demo:latest\n```\n```\nNamespace into which the function is (re)deployed: YOUR_NAMESPACE\n```\n\n> Remember to replace `YOUR_NAMESPACE` with the desired kubernetes namespace or OpenShift project on all commands above\n"
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |-
+        #### To verify your project was successfully created:
+        You should see a **demo** folder containing `func.yaml`, `index.js`, `package-lock.json`, `package.json`, `README.md` and `test` files/folders.
+    summary:
+      failed: Try the steps again.
+      success: You just created a new functions project using knative CLI!
+    
+  - title: Deploy function to OpenShift cluster
+    description: "Let's deploy our function on OpenShift.\n1. In the web terminal, run: \n```\nkn func deploy --registry image-registry.openshift-image-registry.svc:5000 --image image-registry.openshift-image-registry.svc:5000/$MY_NAMESPACE/$MY_PROJECT:latest -n $MY_NAMESPACE\n```\n2. Now wait for the build complete on OpenShift. While it's building, you should see the following message in the terminal:\n```\nBUILDING...\n```\n"
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: "#### To verify the Quarkus development mode is running properly:\nDo
+        you see the logs (_Profile dev activated. Live Coding activated._) in the
+        terminal? "
+    summary:
+      failed: Try the steps again.
+      success: You're now running your Node.js function on OpenShift!
+    
+  - title: Test your first serverless function
+    description: "To test your first serverless function:\n1. In the project explorer,
+      go to the _src/main/java/org/acme_ directory and open the **MyFunctions.java**
+      file.\n2. The **@Funq** annotation exposes the _hello_ method as a serverless
+      function based on the **Funqy API**. The function name is equivalent to the
+      method name (_hello_) by default:\n```\n@Funq\npublic String hello() {\n    return
+      \"Welcome, Quarkus Serverless Functions on the Developer Sandbox!\";\n}\n```\n3.
+      Open another terminal. Click **Terminal** in the top menu bar and click the
+      **Open Terminal in specific container** item.  Click on the **vscode-javaxxx**
+      item to open another terminal.\n4. Enter the following curl command in the terminal
+      to access the function:\n```\ncurl localhost:8080/hello ; echo\n``` "
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |-
+        #### To verify that the function is accessible by the RESTful API:
+        Do you see the output, **"Welcome, Quarkus Serverless Functions on the Developer Sandbox!"** in the terminal?
+    summary:
+      failed: Try the steps again.
+      success: You just accessed your first serverless function locally!
+    
+
+  - description: "Add a new function using Quarkus Contexts and Dependency Injection
+      (CDI):\n1. Go to the _src/main/java/org/acme_ directory and open the **MyFunctionsService.java**
+      file.\n2. Add the following code after **// Add a greeting service** line:\n```\npublic
+      String greeting(String name) {\n  return \"Hello \" + name;\n}\n```\nNote that
+      you don't need to save the file because CodeReady Workspaces will save the changes
+      automatically.\n3. Open the existing **MyFunctions.java** file.\n4. Add the
+      following code to inject the **MyFunctionsService**:\n```\n@Inject\nMyFunctionsService
+      myFunctionsService;\n\n@Funq\npublic String greeting(String name) {\n    return
+      myFunctionsService.greeting(name);\n}\n```\n5. Enter the following curl command
+      in the terminal to access the new function:\n```\ncurl --data '\"Quarkus Serverless
+      Function\"' localhost:8080/greeting ; echo\n``` "
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |-
+        #### To verify that the new function is accessible by the RESTful API with a data:
+        Do you see the output, **"Hello Quarkus Serverless Function"** in the terminal?
+    summary:
+      failed: Try the steps again.
+      success: You just added a new serverless function to your Quarkus project!
+    title: Add a new serverless function using Quarkus CDI
+  - description: "To deploy the functions to the OpenShift cluster on the developer
+      sandbox:\n1. Go to the _src/main/resources_ directory and open the **application.properties**
+      file.\n2. Uncomment the following configuration. Then, replace **USERNAME**
+      with your username (e.g. _doh_). You can also find your username in OpenShift
+      web console:\n```\nquarkus.container-image.group=USERNAME-dev\n\n```\n3. Go
+      back to OpenShift web console. Then, click on your **username** (e.g. _doh_)
+      on the right top.\n4. Click on **Copy login command**. Note that a new web browser
+      or tab will open automatically.\n5. Log in with **DevSandbox**.\n6. Click on
+      the **Display Token** link.\n7. Copy the **oc** command with a token in **Log
+      in with this token*. For example,\n```\noc login --token=sha256~h-QJe1mT7EWfO7xhOSfg9yZBd7QhWK0Y3qZVxb95IBY
+      --server=https://api.sandbox-m2.ll9k.p1.openshiftapps.com:6443\n```\n8. Go back
+      to the terminal that Quarkus dev mode is running. Stop the dev mode by **CTRL-C**.\n9.
+      Paste the above command to the terminal in CodeReady Workspaces. The output
+      should look like:\n```\nYou have access to the following projects and can switch
+      between them with 'oc project <projectname>':\n\n* YOUR_USERNAME-dev\n  YOUR_USERNAME-stage\n\nUsing
+      project \"YOUR_USERNAME-dev\".\nWelcome! See 'oc help' to get started.\n```
+      \n10. Deploy the functions by using the following **Maven** command:\n```\nmvn
+      clean package\n```\nNote that it takes a few minutes to complete building and
+      deploying the applications to OpenShift."
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |-
+        #### To verify that the Quarkus serverless functions are deployed successfully:
+        Do you see the output,  **BUILD SUCCESS** in the terminal?
+    summary:
+      failed: Try the steps again.
+      success: You just deployed your serverless functions to the OpenShift cluster
+        on the developer sandbox!
+    title: Deploy the Quarkus serverless function to OpenShift
+  - description: "To change the runtime icon to reflect Quarkus, and access the deployed
+      functions on the OpenShift cluster:\n1. Return to the OpenShift Console. In
+      the navigation menu, click [Topology]{{highlight qs-nav-topology}}.\n2. Click
+      on the **quarkus-funqy-qs-00001s** revision.\n3. In the side panel, click the
+      **Actions** dropdown menu and click **Edit labels**.\n4. Add this label to change
+      the Revision icon to **Quarkus**: \n```\napp.openshift.io/runtime=quarkus\n```\n5.
+      Click on **Save** to save the labels.\n6. Click on the **quarkus-funqy-qs**
+      KSVC.\n7. In the side panel, click the **Actions** dropdown menu and click **Edit
+      labels**.\n8. Add this label to indicate that this is a serverless function:
+      \n```\nboson.dev/function=true\n``` 9. Click on **Save** to save the labels.\n10.
+      By now, the pod should have autoscaled to `0`. Hover over the pod ring with
+      the Quarkus logo.  A blue ring indicates the pod is running.  A white ring indicates
+      that the pod is autoscaled to 0.  The pod should autoscale to `0` after `30`
+      seconds of no activity.\n11. Click on the Resources tab of the side panel and
+      copy the Route URL. For example, it should look similar to:\n```\nhttps://quarkus-funqy-qs-doh-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com\n```\n12.
+      Return to the Terminal in CodeReady Workspaces, and enter the following **curl**
+      command to access the **greeting** function. Be sure to replace **YOUR-ROUTE-URL**
+      with the Route URL you just copied.\n```\ncurl --data '\"Quarkus Serverless
+      Functions\"' https://YOUR-ROUTE-URL/greeting ; echo\n```\n13. Return to the
+      OpenShift Console. You should see the pod autoscales to `1`. Note that it might
+      take a few seconds to scale out.\n14. Return to the Terminal in CodeReady Worksapces,
+      to access the other function (**hello**) using the following curl command.  Be
+      sure to replace **YOUR-ROUTE-URL** with the Route URL you previously copied:\n```\ncurl
+      https://YOUR-ROUTE-URL/hello ; echo\n``` "
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |-
+        #### To verify that the deployed functions on OpenShift are accessible by the RESTful APIs:
+        1. Do you see the output, **"Hello Quarkus Serverless Function"** when you access the **greeting** function in the terminal?
+        2. Do you see the output, **"Welcome, Quarkus Serverless Functions on the Developer Sandbox!"** when you access the **hello** function in the terminal?
+    summary:
+      failed: Try the steps again.
+      success: You just accessed the deployed serverless functions on OpenShift!
+    title: Access the functions on OpenShift

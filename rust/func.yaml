@@ -1,0 +1,22 @@
+specVersion: 0.25.0
+name: rust
+namespace: ""
+runtime: rust
+registry: ""
+image: ""
+imageDigest: ""
+buildpacks:
+- docker.io/paketocommunity/rust
+builder: ""
+volumes: []
+buildEnvs: []
+envs: []
+annotations: {}
+options: {}
+labels: []
+healthEndpoints:
+  liveness: /health/liveness
+  readiness: /health/readiness
+created: 2022-12-14T10:12:14.523219-03:00
+invocation:
+  format: http

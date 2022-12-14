@@ -1,0 +1,23 @@
+specVersion: 0.25.0
+name: typescript
+namespace: ""
+runtime: typescript
+registry: ""
+image: ""
+imageDigest: ""
+buildpacks: []
+builder: ""
+volumes: []
+buildEnvs:
+- name: BP_NODE_RUN_SCRIPTS
+  value: build
+envs: []
+annotations: {}
+options: {}
+labels: []
+healthEndpoints:
+  liveness: /health/liveness
+  readiness: /health/readiness
+created: 2022-12-14T10:12:39.32968-03:00
+invocation:
+  format: http
