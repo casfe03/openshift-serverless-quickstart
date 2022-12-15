@@ -18,7 +18,8 @@ spec:
   - ""
   prerequisites:
   - "Install OpenShift Serverless Operator"
-  - "Install OpenShift Pipeline Operators"
+  - "Install OpenShift Pipeline Operator"
+  - "Install Web Terminal Operator"
   tasks:
   
   - title: Launch Web Terminal and setup the environment
