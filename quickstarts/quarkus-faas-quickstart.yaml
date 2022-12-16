@@ -1,0 +1,279 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleQuickStart
+metadata:
+  name: quarkus-serverless-function-quickstart
+spec:
+  conclusion: |-
+    You just learned how to create a Quarkus serverless function using KNative CLI (kn) with OpenShift Serverless! To
+    learn more about developing Kubernetes Serverless applications, take a look at our [Serverless Guide](https://docs.openshift.com/container-platform/4.11/serverless/serverless-release-notes.html).
+  description: Learn how to develop and deploy Quarkus serverless functions to Red
+    Hat OpenShift using the command line (CLI).
+  displayName: Get started with Quarkus serverless functions using CLI
+  durationMinutes: 10
+  icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJMYXllcl8xIiBkYXRhLW5hbWU9IkxheWVyIDEiIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojNDY5NWViO30uY2xzLTJ7ZmlsbDojZmYwMDRhO30uY2xzLTN7ZmlsbDojZmZmO308L3N0eWxlPjwvZGVmcz48dGl0bGU+cXVhcmt1c19pY29uX3JnYl8xMDI0cHhfcmV2ZXJzZTwvdGl0bGU+PHBvbHlnb24gY2xhc3M9ImNscy0xIiBwb2ludHM9IjY2OS4zNCAxODAuNTcgNTEyIDI3MS40MSA2NjkuMzQgMzYyLjI1IDY2OS4zNCAxODAuNTciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMzU0LjY2IDE4MC41NyAzNTQuNjYgMzYyLjI1IDUxMiAyNzEuNDEgMzU0LjY2IDE4MC41NyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMyIgcG9pbnRzPSI2NjkuMzQgMzYyLjI1IDUxMiAyNzEuNDEgMzU0LjY2IDM2Mi4yNSA1MTIgNDUzLjA5IDY2OS4zNCAzNjIuMjUiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEiIHBvaW50cz0iMTg4Ljc2IDQ2Ny45MyAzNDYuMSA1NTguNzYgMzQ2LjEgMzc3LjA5IDE4OC43NiA0NjcuOTMiLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMzQ2LjEgNzQwLjQ0IDUwMy40MyA2NDkuNiAzNDYuMSA1NTguNzYgMzQ2LjEgNzQwLjQ0Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0zIiBwb2ludHM9IjM0Ni4xIDM3Ny4wOSAzNDYuMSA1NTguNzYgNTAzLjQzIDY0OS42IDUwMy40MyA0NjcuOTMgMzQ2LjEgMzc3LjA5Ii8+PHBvbHlnb24gY2xhc3M9ImNscy0xIiBwb2ludHM9IjY3Ny45IDc0MC40NCA2NzcuOSA1NTguNzYgNTIwLjU3IDY0OS42IDY3Ny45IDc0MC40NCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSI4MzUuMjQgNDY3LjkzIDY3Ny45IDM3Ny4wOSA2NzcuOSA1NTguNzYgODM1LjI0IDQ2Ny45MyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMyIgcG9pbnRzPSI1MjAuNTcgNjQ5LjYgNjc3LjkgNTU4Ljc2IDY3Ny45IDM3Ny4wOSA1MjAuNTcgNDY3LjkzIDUyMC41NyA2NDkuNiIvPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTg1My40NywxSDE3MC41M0M3Ny4yOSwxLDEsNzcuMjksMSwxNzAuNTNWODUzLjQ3QzEsOTQ2LjcxLDc3LjI5LDEwMjMsMTcwLjUzLDEwMjNoNDY3LjdMNTEyLDcxNi4zOSw0MjAuNDIsOTEwSDE3MC41M0MxMzkuOSw5MTAsMTE0LDg4NC4xLDExNCw4NTMuNDdWMTcwLjUzQzExNCwxMzkuOSwxMzkuOSwxMTQsMTcwLjUzLDExNEg4NTMuNDdDODg0LjEsMTE0LDkxMCwxMzkuOSw5MTAsMTcwLjUzVjg1My40N0M5MTAsODg0LjEsODg0LjEsOTEwLDg1My40Nyw5MTBINzA1LjI4bDQ2LjUyLDExM0g4NTMuNDdjOTMuMjQsMCwxNjkuNTMtNzYuMjksMTY5LjUzLTE2OS41M1YxNzAuNTNDMTAyMyw3Ny4yOSw5NDYuNzEsMSw4NTMuNDcsMVoiLz48L3N2Zz4K
+  introduction: |-
+    This quick start guides you through developing and deploying a simple Quarkus serverless
+    function using OpenShift Serverless Function.
+  nextQuickStart:
+  - ""
+  prerequisites:
+  - "Install OpenShift Serverless Operator"
+  - "Install OpenShift Pipeline Operator"
+  - "Install Web Terminal Operator"
+  tasks:
+  
+  - title: Launch Web Terminal and setup the environment
+    description: |
+      First we need to launch the Web Terminal.
+      
+      1. Click on the [Web Terminal Launcher]{{highlight qs-masthead-cloudshell}} in the top banner of the OpenShift Console to open it. You'll see at the bottom of the page something like this:
+      
+      <img src="https://github.com/luszczynski/openshift-serverless-quickstart/raw/main/quickstarts/imgs/terminal-init.jpg" />
+      
+      2. Wait for the Web terminal to load. You'll see the following screen when it's ready:
+      
+      <img src="https://github.com/luszczynski/openshift-serverless-quickstart/raw/main/quickstarts/imgs/terminal-loaded.jpg" />
+      
+      3. Make sure the `kn func` command line is working. For that, run in the web terminal:
+      
+      ```
+      kn version
+      ```{{execute}}
+      
+      and you should see the KNative version as below:
+      
+      <img src="https://github.com/luszczynski/openshift-serverless-quickstart/raw/main/quickstarts/imgs/kn-version.jpg"/>
+      
+      4. Now let's define some important environment variables.
+      
+      > Remember to replace `my-namespace` with the desired kubernetes namespace or OpenShift project and `demo` with the desired name of your functions project in the following commands.
+      
+      Define your namespace:
+      
+      ```
+      export MY_NAMESPACE=my-namespace
+      ```{{execute}}
+      
+      Now define your function project:
+
+      ```
+      export MY_PROJECT=demo
+      ```{{execute}}
+      
+      5. Before move on, make sure you are in the right OpenShift project/namespace:
+      
+      ```
+      oc project $MY_NAMESPACE
+      ```{{execute}}
+
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |
+        To verify the environment variables, run:
+        
+        ```
+        echo MY_NAMESPACE=$MY_NAMESPACE && echo MY_PROJECT=$MY_PROJECT
+        ```{{execute}}
+        
+        Are both variables defined? Below you have an example of an expected output:
+        
+        <img src="https://github.com/luszczynski/openshift-serverless-quickstart/raw/main/quickstarts/imgs/var-final.jpg" />
+    summary:
+      failed: Try the steps again.
+      success: Congrats! Your environment is working as expected.
+
+  - title: Create your first OpenShift Serverless Function project
+    description: |
+      1. Let's create a new function project for this demontration. Run: 
+
+      ```
+      kn func create -l quarkus -t http /tmp/$MY_PROJECT
+      ```{{execute}}
+
+      This will create a folder in the tmp directory with the name of the $MY_PROJECT variable.
+      
+      2. Now let's see the files that were created. Run:
+
+      ```
+      cd /tmp/$MY_PROJECT && ls
+      ```{{execute}}
+
+      3. As you can see, `Function.java` has the necessary code to handle a request (more on that later):
+
+      ```
+      ...
+      @Funq
+      public Output function(Input input) {
+
+        // Add business logic here
+
+        return new Output(input.getMessage());
+      }
+      ...
+      ```
+
+      You can see the `Function.java` using the command:
+
+      ```
+      cat /tmp/$MY_PROJECT/src/main/java/functions/Function.java 
+      ```{{execute}}
+
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |
+        #### To verify your project was successfully created:
+        
+        You should see a folder (which name was defined by $MY_PROJECT variable) containing `README.md`, `func.yaml`, `mvnw`, `mvnw.cmd`, `pom.xml` and `src` files/folders.
+    summary:
+      failed: Try the steps again.
+      success: You just created a new functions project using knative CLI!
+    
+  - title: Add your project to git
+    description: |
+      In this lab, we'll push your code to a github repository. You can skip this lab if you want and use this repository for the next exercises: [https://github.com/luszczynski/openshift-serverless-quickstart](https://github.com/luszczynski/openshift-serverless-quickstart)
+      
+      1. Let's initialize git in our repository. Run: 
+      
+      ```
+      cd /tmp/$MY_PROJECT && git init
+      ```{{execute}}
+      
+      2. Configure your git email:
+
+      ```
+      git config --global user.email you@example.com
+      ```{{execute}}
+      
+      3. And now your git username:
+
+      ```
+      git config --global user.name "Your Name"
+      ```{{execute}}
+      
+      4. Add your files to stage
+
+      ```
+      git add .
+      ```{{execute}}
+
+      5. Now commit all files by running:
+
+      ```
+      git commit -m 'first commit'
+      ```{{execute}}
+      
+      6. Create a <a href="https://github.com/new" target="_blank">new public github repository</a> named `openshift-serverless-quickstart`
+      
+      7. Set the remote repo:
+
+      ```
+      git remote add origin git@github.com:your-github-username/openshift-serverless-quickstart.git
+      ```{{execute}}
+      
+      8. Push your code:
+      
+      ```
+      git push -u origin main
+      ```{{execute}}
+
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |
+        #### To verify your git repository was created:
+        You should see your files in the github repository.
+    summary:
+      failed: Try the steps again.
+      success: Now your code is in a github repository! Congrats!
+
+  - title: Deploy function to OpenShift cluster
+    description: |
+      Let's deploy our function on OpenShift. If you have not created your github repository in the previous lab, use this one [https://github.com/luszczynski/openshift-serverless-quickstart](https://github.com/luszczynski/openshift-serverless-quickstart) for the next steps.
+      
+      1. Make sure you are in the right directory and in the right namespace:
+      
+      ```
+      cd /tmp/$MY_PROJECT && oc project $MY_NAMESPACE
+      ```{{execute}}
+      
+      2. We need to create the s2i Tekton task to be able to use Source-to-Image in our function project:
+      
+      ```
+      oc apply -f https://raw.githubusercontent.com/openshift-knative/kn-plugin-func/serverless-1.25.0/pipelines/resources/tekton/task/func-s2i/0.1/func-s2i.yaml -n $MY_NAMESPACE 
+      ```{{execute}}
+      
+      3. We also need to create the kn func deploy Tekton task to be able to deploy the function in the pipeline:
+      
+      ```
+      oc apply -f https://raw.githubusercontent.com/openshift-knative/kn-plugin-func/serverless-1.25.0/pipelines/resources/tekton/task/func-deploy/0.1/func-deploy.yaml -n $MY_NAMESPACE 
+      ```{{execute}}
+      
+      4. Now, in the web terminal, run:
+      
+      ```
+      kn func deploy --remote  --git-url=https://github.com/luszczynski/openshift-serverless-quickstart.git --git-dir=projects/quarkus -n $MY_NAMESPACE
+      ```{{execute}}
+      
+      5. This will start a pipeline using Tekton as the engine. Let's wait for the tekton build to complete on OpenShift.
+      
+      6. While it's building, you can check the status by clicking on [Pipeline menu]{{highlight qs-nav-pipelines}}.
+      
+      7. We can algo use the OpenShift CLI to check the pipeline status:
+      
+      ```
+      oc get pipeline -n $MY_NAMESPACE
+      ```{{execute}}
+      
+      Check the pipeline run:
+      
+      ```
+      oc get pipelinerun -n $MY_NAMESPACE
+      ```{{execute}}
+      
+      8. When it's done, you can see the `Task status` column as green on the pipeline menu. If using the CLI, you'll see something like this when running:
+      
+      ```
+      oc get pipelinerun -n $MY_NAMESPACE
+      ```{{execute}}
+      
+      ```
+      demo-s2i-pipeline-run-rdkjb   True        Succeeded        7h40m       7h37m
+      ```
+      
+      9. Now click on the [Topology perspective]{{highlight qs-nav-topology}} to see your first functions running.
+
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: "#### To verify the function was properly deployed:\nDo
+        you see your function app in the topology view?"
+    summary:
+      failed: Try the steps again.
+      success: You're now running your Quarkus function on OpenShift!
+
+  - title: Access the functions on OpenShift
+    description: |
+      Go back to the [Topology view]{{highlight qs-nav-topology}}
+      
+      1. By now, the pod should have autoscaled  to `0`. Hover over the pod ring with the Quarkus logo.  A blue ring indicates the pod is running. A white ring indicates that the pod is autoscaled to 0.  The pod should autoscale to `0` after `60` seconds of no activity.
+      
+      2. Click on the KSVC icon and then on the `Resources` tab of the side panel and copy the Route URL. For example, it should look similar to:
+      
+      ```
+      https://quarkus-user8.apps.customer.sandbox1653.opentlc.com\n
+      ```
+      
+      3. Return to the web terminal, and enter the following **curl** command to access our function. Be sure to replace **YOUR-ROUTE-URL** with the Route URL you just copied.
+      
+      ```
+      curl --data 'Quarkus Serverless Functions' https://YOUR-ROUTE-URL ; echo
+      ```{{execute}}
+      
+      4. Return to the OpenShift Console. You should see the pod autoscales to `1`. Note that it might take a few seconds to scale out
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |
+        #### To verify that the deployed functions on OpenShift are accessible by the RESTful APIs:
+        Do you see your application scaling up when you reach its URL?
+    summary:
+      failed: Try the steps again.
+      success: You just accessed the deployed serverless functions on OpenShift!
+    
