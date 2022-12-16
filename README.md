@@ -30,13 +30,4 @@ oc apply -f https://raw.githubusercontent.com/luszczynski/openshift-serverless-q
 
 # Python
 oc apply -f https://raw.githubusercontent.com/luszczynski/openshift-serverless-quickstart/main/quickstarts/python-faas-quickstart.yaml
-
-# Rust
-oc apply -f https://raw.githubusercontent.com/luszczynski/openshift-serverless-quickstart/main/quickstarts/rust-faas-quickstart.yaml
-
-# SpringBoot
-oc apply -f https://raw.githubusercontent.com/luszczynski/openshift-serverless-quickstart/main/quickstarts/springboot-faas-quickstart.yaml
-
-# Typescript
-oc apply -f https://raw.githubusercontent.com/luszczynski/openshift-serverless-quickstart/main/quickstarts/typescript-faas-quickstart.yaml
 ```
