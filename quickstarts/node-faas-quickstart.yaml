@@ -207,7 +207,7 @@ spec:
       4. Now, in the web terminal, run:
       
       ```
-      kn func deploy --remote  --git-url=https://github.com/luszczynski/openshift-serverless-quickstart.git --git-dir=node -n $MY_NAMESPACE
+      kn func deploy --remote  --git-url=https://github.com/luszczynski/openshift-serverless-quickstart.git --git-dir=projects/node -n $MY_NAMESPACE
       ```{{execute}}
       
       5. This will start a pipeline using Tekton as the engine. Let's wait for the tekton build to complete on OpenShift.

@@ -1,0 +1,279 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleQuickStart
+metadata:
+  name: go-serverless-function-quickstart
+spec:
+  conclusion: |-
+    You just learned how to create a GO serverless function using KNative CLI (kn) with OpenShift Serverless! To
+    learn more about developing Kubernetes Serverless applications, take a look at our [Serverless Guide](https://docs.openshift.com/container-platform/4.11/serverless/serverless-release-notes.html).
+  description: Learn how to develop and deploy GO serverless functions to Red
+    Hat OpenShift using the command line (CLI).
+  displayName: Get started with GO serverless functions using CLI
+  durationMinutes: 10
+  icon: data:image/png;base64,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
+  introduction: |-
+    This quick start guides you through developing and deploying a simple GO serverless
+    function using OpenShift Serverless Function.
+  nextQuickStart:
+  - ""
+  prerequisites:
+  - "Install OpenShift Serverless Operator"
+  - "Install OpenShift Pipeline Operator"
+  - "Install Web Terminal Operator"
+  tasks:
+  
+  - title: Launch Web Terminal and setup the environment
+    description: |
+      First we need to launch the Web Terminal.
+      
+      1. Click on the [Web Terminal Launcher]{{highlight qs-masthead-cloudshell}} in the top banner of the OpenShift Console to open it. You'll see at the bottom of the page something like this:
+      
+      <img src="https://github.com/luszczynski/openshift-serverless-quickstart/raw/main/quickstarts/imgs/terminal-init.jpg" />
+      
+      2. Wait for the Web terminal to load. You'll see the following screen when it's ready:
+      
+      <img src="https://github.com/luszczynski/openshift-serverless-quickstart/raw/main/quickstarts/imgs/terminal-loaded.jpg" />
+      
+      3. Make sure the `kn func` command line is working. For that, run in the web terminal:
+      
+      ```
+      kn version
+      ```{{execute}}
+      
+      and you should see the KNative version as below:
+      
+      <img src="https://github.com/luszczynski/openshift-serverless-quickstart/raw/main/quickstarts/imgs/kn-version.jpg"/>
+      
+      4. Now let's define some important environment variables.
+      
+      > Remember to replace `my-namespace` with the desired kubernetes namespace or OpenShift project and `demo` with the desired name of your functions project in the following commands.
+      
+      Define your namespace:
+      
+      ```
+      export MY_NAMESPACE=my-namespace
+      ```{{execute}}
+      
+      Now define your function project:
+
+      ```
+      export MY_PROJECT=demo
+      ```{{execute}}
+      
+      5. Before move on, make sure you are in the right OpenShift project/namespace:
+      
+      ```
+      oc project $MY_NAMESPACE
+      ```{{execute}}
+
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |
+        To verify the environment variables, run:
+        
+        ```
+        echo MY_NAMESPACE=$MY_NAMESPACE && echo MY_PROJECT=$MY_PROJECT
+        ```{{execute}}
+        
+        Are both variables defined? Below you have an example of an expected output:
+        
+        <img src="https://github.com/luszczynski/openshift-serverless-quickstart/raw/main/quickstarts/imgs/var-final.jpg" />
+    summary:
+      failed: Try the steps again.
+      success: Congrats! Your environment is working as expected.
+
+  - title: Create your first OpenShift Serverless Function project
+    description: |
+      1. Let's create a new function project for this demontration. Run: 
+
+      ```
+      kn func create -l go -t http /tmp/$MY_PROJECT
+      ```{{execute}}
+
+      This will create a folder in the tmp directory with the name of the $MY_PROJECT variable.
+      
+      2. Now let's see the files that were created. Run:
+
+      ```
+      cd /tmp/$MY_PROJECT && ls
+      ```{{execute}}
+
+      3. As you can see, `handle.go` has the necessary code to handle a POST request (more on that later):
+
+      ```
+      ...
+        if req.Method == "POST" {
+                req.ParseForm()
+                fmt.Fprintln(b, "Body:")
+                for k, v := range req.Form {
+                        fmt.Fprintf(b, "  %v: %v\n", k, v)
+                }
+        }
+      ...
+      ```
+
+      You can see the `handle.go` using the command:
+
+      ```
+      cat /tmp/$MY_PROJECT/handle.go 
+      ```{{execute}}
+
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |
+        #### To verify your project was successfully created:
+        
+        You should see a folder (which name was defined by $MY_PROJECT variable) containing `func.yaml`, `handle.go`, `handle_test.go`, `README.md` and `go.mod` files.
+    summary:
+      failed: Try the steps again.
+      success: You just created a new functions project using knative CLI!
+    
+  - title: Add your project to git
+    description: |
+      In this lab, we'll push your code to a github repository. You can skip this lab if you want and use this repository for the next exercises: [https://github.com/luszczynski/openshift-serverless-quickstart](https://github.com/luszczynski/openshift-serverless-quickstart)
+      
+      1. Let's initialize git in our repository. Run: 
+      
+      ```
+      cd /tmp/$MY_PROJECT && git init
+      ```{{execute}}
+      
+      2. Configure your git email:
+
+      ```
+      git config --global user.email you@example.com
+      ```{{execute}}
+      
+      3. And now your git username:
+
+      ```
+      git config --global user.name "Your Name"
+      ```{{execute}}
+      
+      4. Add your files to stage
+
+      ```
+      git add .
+      ```{{execute}}
+
+      5. Now commit all files by running:
+
+      ```
+      git commit -m 'first commit'
+      ```{{execute}}
+      
+      6. Create a <a href="https://github.com/new" target="_blank">new public github repository</a> named `openshift-serverless-quickstart`
+      
+      7. Set the remote repo:
+
+      ```
+      git remote add origin git@github.com:your-github-username/openshift-serverless-quickstart.git
+      ```{{execute}}
+      
+      8. Push your code:
+      
+      ```
+      git push -u origin main
+      ```{{execute}}
+
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |
+        #### To verify your git repository was created:
+        You should see your files in the github repository.
+    summary:
+      failed: Try the steps again.
+      success: Now your code is in a github repository! Congrats!
+
+  - title: Deploy function to OpenShift cluster
+    description: |
+      Let's deploy our function on OpenShift. If you have not created your github repository in the previous lab, use this one [https://github.com/luszczynski/openshift-serverless-quickstart](https://github.com/luszczynski/openshift-serverless-quickstart) for the next steps.
+      
+      1. Make sure you are in the right directory and in the right namespace:
+      
+      ```
+      cd /tmp/$MY_PROJECT && oc project $MY_NAMESPACE
+      ```{{execute}}
+      
+      2. We need to create the s2i Tekton task to be able to use Source-to-Image in our function project:
+      
+      ```
+      oc apply -f https://raw.githubusercontent.com/openshift-knative/kn-plugin-func/serverless-1.25.0/pipelines/resources/tekton/task/func-s2i/0.1/func-s2i.yaml -n $MY_NAMESPACE 
+      ```{{execute}}
+      
+      3. We also need to create the kn func deploy Tekton task to be able to deploy the function in the pipeline:
+      
+      ```
+      oc apply -f https://raw.githubusercontent.com/openshift-knative/kn-plugin-func/serverless-1.25.0/pipelines/resources/tekton/task/func-deploy/0.1/func-deploy.yaml -n $MY_NAMESPACE 
+      ```{{execute}}
+      
+      4. Now, in the web terminal, run:
+      
+      ```
+      kn func deploy --remote  --git-url=https://github.com/luszczynski/openshift-serverless-quickstart.git --git-dir=projects/go -n $MY_NAMESPACE
+      ```{{execute}}
+      
+      5. This will start a pipeline using Tekton as the engine. Let's wait for the tekton build to complete on OpenShift.
+      
+      6. While it's building, you can check the status by clicking on [Pipeline menu]{{highlight qs-nav-pipelines}}.
+      
+      7. We can algo use the OpenShift CLI to check the pipeline status:
+      
+      ```
+      oc get pipeline -n $MY_NAMESPACE
+      ```{{execute}}
+      
+      Check the pipeline run:
+      
+      ```
+      oc get pipelinerun -n $MY_NAMESPACE
+      ```{{execute}}
+      
+      8. When it's done, you can see the `Task status` column as green on the pipeline menu. If using the CLI, you'll see something like this when running:
+      
+      ```
+      oc get pipelinerun -n $MY_NAMESPACE
+      ```{{execute}}
+      
+      ```
+      demo-s2i-pipeline-run-rdkjb   True        Succeeded        7h40m       7h37m
+      ```
+      
+      9. Now click on the [Topology perspective]{{highlight qs-nav-topology}} to see your first functions running.
+
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: "#### To verify the function was properly deployed:\nDo
+        you see your function app in the topology view?"
+    summary:
+      failed: Try the steps again.
+      success: You're now running your GO function on OpenShift!
+
+  - title: Access the functions on OpenShift
+    description: |
+      Go back to the [Topology view]{{highlight qs-nav-topology}}
+      
+      1. By now, the pod should have autoscaled  to `0`. Hover over the pod ring with the GO logo.  A blue ring indicates the pod is running. A white ring indicates that the pod is autoscaled to 0.  The pod should autoscale to `0` after `60` seconds of no activity.
+      
+      2. Click on the KSVC icon and then on the `Resources` tab of the side panel and copy the Route URL. For example, it should look similar to:
+      
+      ```
+      https://go-user8.apps.customer.sandbox1653.opentlc.com\n
+      ```
+      
+      3. Return to the web terminal, and enter the following **curl** command to access our function. Be sure to replace **YOUR-ROUTE-URL** with the Route URL you just copied.
+      
+      ```
+      curl --data 'GO Serverless Functions' https://YOUR-ROUTE-URL ; echo
+      ```{{execute}}
+      
+      4. Return to the OpenShift Console. You should see the pod autoscales to `1`. Note that it might take a few seconds to scale out
+    review:
+      failedTaskHelp: This task isn’t verified yet. Try the task again.
+      instructions: |
+        #### To verify that the deployed functions on OpenShift are accessible by the RESTful APIs:
+        Do you see your application scaling up when you reach its URL?
+    summary:
+      failed: Try the steps again.
+      success: You just accessed the deployed serverless functions on OpenShift!
+    
