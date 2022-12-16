@@ -98,14 +98,17 @@ spec:
       cd /tmp/$MY_PROJECT && ls
       ```{{execute}}
 
-      3. As you can see, `index.js` has the necessary code to handle a GET request (more on that later):
+      3. As you can see, `index.js` has the necessary code to handle a POST request (more on that later):
 
       ```
       ...
-      } else if (context.method === 'GET') {
-      return {
-            query: context.query,
-            }
+      context.log.info(JSON.stringify(context, null, 2));
+
+      // If the request is an HTTP POST, the context will contain the request body
+      if (context.method === 'POST') {
+        return {
+          body: context.body,
+        }
       ...
       ```
 
